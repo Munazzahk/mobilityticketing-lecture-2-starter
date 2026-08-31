@@ -60,17 +60,6 @@ Inspect the relationships for historical tickets, payments, and validations. For
 
 Create an integrity map that connects each business rule to its current owner, affected tables, expected failure behaviour, and remaining limitation.
 
-## Self-assessment
-
-Score each criterion from 0 to 2 at the end of the lab:
-
-- Invalid writes are rejected by named constraints and stable SQLSTATE assertions.
-- The integrity map distinguishes row or table constraints from cross-row or external-system rules.
-- References, duplicated ticket identity, and delete behaviour are explicitly justified.
-- The integrity analysis does not claim that constraints alone solve the purchase race.
-
-Request lecturer feedback only for an invariant whose ownership remains ambiguous after you have demonstrated the competing failure states.
-
 ## Important boundary
 
 A row-level check can protect `reserved_seats <= capacity` for one row. It cannot arbitrate two concurrent purchases that both observe the same remaining capacity. Do not claim that this migration solves that race.
