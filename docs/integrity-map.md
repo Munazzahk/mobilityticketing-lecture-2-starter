@@ -26,7 +26,7 @@
 - Problem: Two customers could try to buy the last available seat at the same time. Both could read the same `reserved_seats` value before either purchase is completed.
 - Consequence: A simple CHECK constraint is not enough to guarantee that the last seat is only sold once.
 - Specific improvement: Handle the seat reservation inside a database transaction. For example, lock the trip row while updating `reserved_seats`, or use an atomic update that only succeeds when `reserved_seats < capacity`.
-- Open question: Which transaction/concurrency strategy should be used for ticket purchase? This is left for the transactions lecture.
+- Open question: Which transaction/concurrency strategy should be used for ticket purchase? 
 
 ### Issue 2 — Payment amount may not match the ticket price
 
